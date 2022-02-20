@@ -67,72 +67,88 @@ function validate(pilot, copilot, fuelLevel, cargoLevel){
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
 
-    list.style.visibility = "hidden";
-    // console.log(document.innerHTML);
+
+    console.log(document, list, pilot, copilot, fuelLevel, cargoLevel);
     // console.log(document.getElementsByTagName("h2"))
 
-    let h2HtmlCollection = document.getElementsByTagName("h2");
-    let h2 = h2HtmlCollection.namedItem("launchStatus");
-    // console.log(h2);
-    // console.log(h2.innerHTML);
-    // let h2 = document.getElementById("launchStatus");
+    let h2 = document.getElementById("launchStatus");
+    let pilotStatus = document.querySelector("#pilotStatus");
+    let copilotStatus = document.querySelector("#copilotStatus");
+    let fuelLevelStatus = document.querySelector("#fuelStatus");
+    let cargoLevelStatus = document.querySelector("#cargoStatus");
 
     if (fuelLevel < 10000 && cargoLevel < 10000){
         console.log("Fuel Level low");
         list.style.visibility = "visible";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">There is not enough fuel for the journey.</li>
-                <li id="cargoStatus" data-testid="cargoStatus">${cargoLevel} kg</li>
-            </ol>
-        `;
+        // list.innerHTML = `
+        //     <ol>
+        //         <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
+        //         <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
+        //         <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
+        //         <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
+        //     </ol>
+        // `;
+        console.log(pilotStatus.innerHTML);
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        console.log(pilotStatus.innerHTML);
+        copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+        fuelLevelStatus.innerHTML = `Fuel level too low for launch`;
+        cargoLevelStatus.innerHTML = `Cargo mass low enough for launch`;
         h2.innerHTML = `Shuttle Not Ready for Launch`;
         console.log(h2.innerHTML);
         h2.style.color = 'rgb(199, 37, 78)';
-        // let pilotStatus = document.getElementById("pilotStatus");
-        // console.log(pilotStatus.innerHTML);
-        // return document;
-        document.load();
+
+
     } else if (cargoLevel > 10000 && fuelLevel >= 10000){
         console.log("Cargo Mass too high");
         list.style.visibility = "visible";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">${fuelLevel} liters</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch.</li>
-            </ol>
-        `;
+        // list.innerHTML = `
+        //     <ol>
+        //         <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
+        //         <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
+        //         <li id="fuelStatus" data-testid="fuelStatus">${fuelLevel} liters</li>
+        //         <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch</li>
+        //     </ol>
+        // `;
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+        fuelLevelStatus.innerHTML = `Fuel level high enough for launch`;
+        cargoLevelStatus.innerHTML = `Cargo mass too heavy for launch`;
         h2.innerHTML = `Shuttle Not Ready for Launch`;
         h2.style.color = 'rgb(199, 37, 78)';
     } else if (cargoLevel > 10000 && fuelLevel < 10000){
                 console.log("Cargo Mass too high and Fuel Level low");
                 list.style.visibility = "visible";
-                list.innerHTML = `
-                    <ol>
-                        <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                        <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                        <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
-                        <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch</li>
-                    </ol>
-                `;
+                // list.innerHTML = `
+                //     <ol>
+                //         <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
+                //         <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
+                //         <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
+                //         <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch</li>
+                //     </ol>
+                // `;
+                pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+                copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+                fuelLevelStatus.innerHTML = `Fuel level too low for launch`;
+                cargoLevelStatus.innerHTML = `Cargo mass too heavy for launch`;
                 h2.innerHTML = `Shuttle Not Ready for Launch`;
                 h2.style.color = 'rgb(199, 37, 78)';
     } else if (fuelLevel > 10000 && cargoLevel < 10000 && validate(pilot, copilot, fuelLevel, cargoLevel) === "Validated"){
         console.log("Launch Checklist when everything is good to go.");
                 console.log(list);
                 list.style.visibility = "visible";
-                list.innerHTML = `
-                    <ol>
-                        <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                        <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                        <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                        <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
-                    </ol>
-                `;
+                // list.innerHTML = `
+                //     <ol>
+                //         <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
+                //         <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
+                //         <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
+                //         <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
+                //     </ol>
+                // `;
+                pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+                copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+                fuelLevelStatus.innerHTML = `Fuel level high enough for launch`;
+                cargoLevelStatus.innerHTML = `Cargo mass low enough for launch`;
                 h2.innerHTML = `Shuttle is Ready for Launch`;    
                 h2.style.color = 'rgb(65, 159, 106)';
     } else {

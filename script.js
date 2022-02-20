@@ -6,7 +6,7 @@ try{ const {myFetch} = require("./scriptHelper.js");
 window.addEventListener("load", function() {
 
     let form = document.querySelector("form");
-
+    //comment
 
     //when working with Angela we put ".value", after all of pilot thru cargoLevel, to get the user input, but now going thru and console logging them, they're blank becuase on the window load they are not inputed by the user yet, but because they are const, i can't reassign them as new variables?, I just don't know hwo I know that theses are working
     // const document = window.document
@@ -52,21 +52,9 @@ window.addEventListener("load", function() {
 
 
         event.preventDefault();
-
-        if (validate(pilot.value, copilot.value, Number(fuelLevel.value), Number(cargoLevel.value)) !== "Validated"){
-            console.log("not valid");
-            list.style.visibility = "hidden";
-
-        }else{
-            console.log("run formSubmission function")
-            list.style.visibility = "hidden";
-            // container.style.visibility = "hidden";
-            formSubmission(myDoc, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
-        }
-
-        // list.style.visibility = "hidden";
-        // container.style.visibility = "hidden";
-        // formSubmission(window.document, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
+        formSubmission(myDoc, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
+        
+        
 
     })
 
