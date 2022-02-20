@@ -123,7 +123,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 cargoLevelStatus.innerHTML = `Cargo mass too heavy for launch`;
                 h2.innerHTML = `Shuttle Not Ready for Launch`;
                 h2.style.color = 'rgb(199, 37, 78)';
-    } else if (fuelLevel > 10000 && cargoLevel < 10000 && validate(pilot, copilot, fuelLevel, cargoLevel) === "Validated"){
+    } else if (fuelLevel >= 10000 && cargoLevel <= 10000 && validate(pilot, copilot, fuelLevel, cargoLevel) === "Validated"){
         console.log("Launch Checklist when everything is good to go.");
                 console.log(list);
                 list.style.visibility = "visible";
