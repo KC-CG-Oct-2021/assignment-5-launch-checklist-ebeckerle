@@ -81,7 +81,7 @@ window.addEventListener("load", function() {
        // call addDestination info with the array from the pickPlanet function
        console.log(chosenPlanet.name);
     
-       addDestinationInfo(missionTarget, chosenPlanet.name, chosenPlanet.diameter, chosenPlanet.star, chosenPlanet.distance, chosenPlanet.moons, chosenPlanet.image);
+       addDestinationInfo(myDoc, chosenPlanet.name, chosenPlanet.diameter, chosenPlanet.star, chosenPlanet.distance, chosenPlanet.moons, chosenPlanet.image);
 
    });
 

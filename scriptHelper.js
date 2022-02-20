@@ -16,9 +16,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
-    // let missionTarget = document.getElementById("missionTarget");
 
-    document.innerHTML += `
+    let missionTarget = document.querySelector("#missionTarget")
+    missionTarget.innerHTML += `
     <h2>Mission Destination</h2>
     <ol>
         <li>Name: ${name}</li>
@@ -29,17 +29,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     </ol>
     <img src="${imageUrl}">
 `;
-    // if (typeof name === "string"){
-    //     console.log("name is a string");
 
-    // console.log(missionTarget);
-    // console.log(document);
-    // };
-    
-    console.log(missionTarget);
-    console.log(document);
-
-    console.log(moons + name);
 }
 
 function validateInput(testInput) {
@@ -91,7 +81,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         console.log(pilotStatus.innerHTML);
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         console.log(pilotStatus.innerHTML);
-        copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         fuelLevelStatus.innerHTML = `Fuel level too low for launch`;
         cargoLevelStatus.innerHTML = `Cargo mass low enough for launch`;
         h2.innerHTML = `Shuttle Not Ready for Launch`;
@@ -111,7 +101,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         //     </ol>
         // `;
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-        copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         fuelLevelStatus.innerHTML = `Fuel level high enough for launch`;
         cargoLevelStatus.innerHTML = `Cargo mass too heavy for launch`;
         h2.innerHTML = `Shuttle Not Ready for Launch`;
@@ -128,7 +118,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 //     </ol>
                 // `;
                 pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-                copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+                copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
                 fuelLevelStatus.innerHTML = `Fuel level too low for launch`;
                 cargoLevelStatus.innerHTML = `Cargo mass too heavy for launch`;
                 h2.innerHTML = `Shuttle Not Ready for Launch`;
@@ -146,13 +136,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 //     </ol>
                 // `;
                 pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-                copilotStatus.innerHTML = `Co-Pilot ${copilot} is ready for launch`;
+                copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
                 fuelLevelStatus.innerHTML = `Fuel level high enough for launch`;
                 cargoLevelStatus.innerHTML = `Cargo mass low enough for launch`;
                 h2.innerHTML = `Shuttle is Ready for Launch`;    
                 h2.style.color = 'rgb(65, 159, 106)';
-    } else {
-        list.style.visibility = 'hidden';
     }
 
 
