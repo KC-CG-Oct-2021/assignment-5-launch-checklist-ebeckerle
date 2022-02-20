@@ -18,7 +18,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 
     let missionTarget = document.querySelector("#missionTarget")
-    missionTarget.innerHTML += `
+    missionTarget.innerHTML = `
     <h2>Mission Destination</h2>
     <ol>
         <li>Name: ${name}</li>
