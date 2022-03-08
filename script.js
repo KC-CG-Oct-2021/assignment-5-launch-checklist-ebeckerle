@@ -50,9 +50,12 @@ window.addEventListener("load", function() {
 
         validate(pilot.value, copilot.value, Number(fuelLevel.value), Number(cargoLevel.value));
 
-
-        event.preventDefault();
-        formSubmission(myDoc, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
+        let isValidated = validate(pilot.value, copilot.value, Number(fuelLevel.value), Number(cargoLevel.value));
+        if (isValidated === 'Validated'){
+            formSubmission(myDoc, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
+        }
+        // event.preventDefault();
+        // formSubmission(myDoc, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
         
         
 

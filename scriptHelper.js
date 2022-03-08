@@ -48,9 +48,12 @@ function validate(pilot, copilot, fuelLevel, cargoLevel){
         alert("All Fields are Required.");
     }else if (validateInput(fuelLevel) == "Not a Number" || validateInput(cargoLevel) == "Not a Number"){
         alert ("Please enter a Number for Fuel Level and Cargo Mass.");
-    }else{
+    }else if (validateInput(pilot) == "Is a Number" || validateInput(copilot) == "Is a Number"){
+        alert ("Please enter a name for Pilot and Co-Pilot.");
+    }
+    else{
         return "Validated";
-        }
+    }
 }
 
 // document stands for the for and list for the "faulty items" (the items aren't passing the Shuttle Requirements)
